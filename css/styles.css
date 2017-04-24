@@ -180,9 +180,6 @@ body .demo-blog {
       -ms-flex-order: -1;
           order: -1;
 }
-.demo-blog .coffee-pic .mdl-card__media {
-  background-image: url('images/coffee.jpg');
-}
 .demo-blog .something-else .mdl-card__media {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -450,7 +447,7 @@ body .demo-blog {
   background-image: url('../images/avatar.png');
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 50%;
+  background-size: 100%;
   border-radius: 22px;
   background-color: #F5F5F5;
 }

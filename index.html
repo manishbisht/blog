@@ -43,22 +43,23 @@
         <div class="demo-blog__posts mdl-grid" ng-if="data">
             <div class="mdl-card mdl-cell mdl-cell--12-col" ng-repeat="d in data.payload.references.Post">
                 <img src="https://cdn-images-1.medium.com/max/1000/{{d.virtuals.previewImage.imageId}}">
-                <div class="mdl-card__media mdl-color-text--grey-50">
-                    <h3><a href="entry.html">{{d.title}}</a></h3>
+                <div class="mdl-card__media" style="background: white;padding-bottom: 2px;">
+                    <h3><a href="https://medium.com/@manishbisht/{{d.uniqueSlug}}" target="_blank">{{d.title}}</a></h3>
                 </div>
+                <div style="padding-left: 30px;padding-right: 20px;"><i class="material-icons">loyalty</i> <span ng-repeat="t in d.virtuals.tags">{{t.name}}, </span></div>
                 <div class="mdl-color-text--grey-600 mdl-card__supporting-text">
                     {{d.content.subtitle}}
                 </div>
                 <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
                     <div class="minilogo"></div>
                     <div>
-                        <strong>Posted by: {{data.payload.user.name}} | {{d.virtuals.readingTime | number:0 }} Min. Read</strong>
+                        <strong>Recommended by {{d.virtuals.recommends}} peoples | {{d.virtuals.readingTime | number:0 }} Min. Read</strong>
                         <span>Written on {{d.createdAt | date : "EEEE"}} at {{d.createdAt | date : "dd MMMM, y hh:mm a"}}</span>
                     </div>
                 </div>
             </div>
         </div>
-        <!--<footer class="mdl-mini-footer">
+        <footer class="mdl-mini-footer">
             <div class="mdl-mini-footer--left-section">
                 <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
                     <span class="visuallyhidden">Twitter</span>
@@ -70,7 +71,7 @@
                     <span class="visuallyhidden">Google Plus</span>
                 </button>
             </div>
-        </footer>-->
+        </footer>
     </main>
     <div class="mdl-layout__obfuscator"></div>
 </div>
