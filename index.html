@@ -4,30 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     <title>Manish Bisht's Blog</title>
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-
-    <link rel="shortcut icon" href="images/favicon.png">
-
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
-
+    <link rel="icon" href="images/Manish%20Bisht-favicon.png">
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+          href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&lang=en">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.grey-orange.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -35,14 +14,18 @@
 </head>
 <body ng-app="Blog" ng-controller="Posts">
 <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
+    <header class="mdl-layout__header mdl-layout__header--transparent">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">Manish Bisht's Blog</span>
+        </div>
+    </header>
     <main class="mdl-layout__content">
         <div align="center">
-            <!--<h1 style="color: #263238">Manish Bisht</h1>-->
             <div ng-if="!data" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
         </div>
         <div class="demo-blog__posts mdl-grid" ng-if="data">
             <div class="mdl-card mdl-cell mdl-cell--12-col" ng-repeat="d in data.payload.references.Post">
-                <img src="https://cdn-images-1.medium.com/max/1000/{{d.virtuals.previewImage.imageId}}">
+                <img ng-src="https://cdn-images-1.medium.com/max/1000/{{d.virtuals.previewImage.imageId}}">
                 <div class="mdl-card__media" style="background: white;padding-bottom: 2px;">
                     <h3><a href="https://medium.com/@manishbisht/{{d.uniqueSlug}}" target="_blank">{{d.title}}</a></h3>
                 </div>
@@ -53,8 +36,8 @@
                 <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
                     <div class="minilogo"></div>
                     <div>
-                        <strong>Recommended by {{d.virtuals.recommends}} peoples | {{d.virtuals.readingTime | number:0 }} Min. Read</strong>
-                        <span>Written on {{d.createdAt | date : "EEEE"}} at {{d.createdAt | date : "dd MMMM, y hh:mm a"}}</span>
+                        <strong>{{d.virtuals.readingTime | number:0 }} Minutes Read</strong>
+                        <span>Published on {{d.createdAt | date : "dd MMMM, y hh:mm a"}}</span>
                     </div>
                 </div>
             </div>
